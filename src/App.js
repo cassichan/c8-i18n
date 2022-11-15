@@ -1,21 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import English from "./lang/en.json";
+import Spanish from "./lang/es.json";
+import "./App.css";
+
+const locale = navigator.language || "en";
+const lang = locale === "es" ? Spanish : English;
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        {/* Bracket notation since includes a period */}
+        <h1>{lang["app.header"]}</h1>
+        <p>{lang["app.subhead"]}</p>
         <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          {lang["app.cta"]}
         </a>
       </header>
     </div>
